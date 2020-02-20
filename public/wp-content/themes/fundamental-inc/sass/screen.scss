@@ -1,0 +1,287 @@
+/* Imports
+***************/
+@import "compass/reset";
+@import "compass/css3";
+@import "../font-awesome/css/fontawesome.css";
+@import "../font-awesome/css/solid.css";
+
+/* Colours
+***************/
+$white: #fff;
+$text: #3D3D3D;
+$yellow: #EAB962;
+$aqua: #14998B;
+$olive: #93A75B;
+$purple: #951B81;
+$red: #E96370;
+$lightgrey: #F1F1F1;
+$midgrey: #C4C4C4;
+
+/* Fonts
+***************/
+$font: 'Rubik', sans-serif;
+$headline: 'Quicksand', sans-serif;
+
+h1,h2,h3 {
+    font-family: $headline;
+    font-weight: bold;
+}
+h1 {
+    font-size: 4.2rem;
+}
+h2 {
+    font-size:3.6rem;
+}
+h3 {
+    font-size:2.4rem;
+}
+h4 {
+    font-size:1.6rem;
+}
+h5 {
+    font-size:1.2rem;
+}
+p {
+    line-height:1.6;
+}
+
+@mixin link--hover {
+    @include transition-property(background-color);
+    @include transition-duration(.2s);
+    @include transition-timing-function(ease-in-out);
+}
+
+/* Body
+***************/
+html {
+    font-family:$font;
+    font-size:62.5%;
+}
+body {
+    font-size:1.8rem;
+}
+.site--wrapper {
+    position: relative;
+    z-index:1;
+}
+.container {
+    display:block;
+    margin:0 auto;
+    width:90%;
+    max-width:1280px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header
+***************/
+.header {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding:20px 40px;
+    position:absolute;
+    z-index:10;
+    top:0;
+    right:0;
+    left:0;
+    .header--logo,
+    .header--nav {
+        -webkit-order: 0;
+        -ms-flex-order: 0;
+        order: 0;
+        -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        -webkit-align-self: auto;
+        -ms-flex-item-align: auto;
+        align-self: auto;
+    }
+    .header--logo {
+        width:240px;
+    }
+    .logo--white {
+        path {
+            background-color:$white;
+            fill:$white;
+            stroke:$white;
+        }
+    }
+    .header--nav {
+        ul {
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+
+            -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+
+            -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-align-content: flex-start;
+            -ms-flex-line-pack: start;
+            align-content: flex-start;
+
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            .search {
+                color:$white;
+                margin:0 0 0 10px;
+                overflow:auto;
+                padding:0 0 0 5px;
+                button  {
+                    padding:0;
+                    color:$white;
+                    background-color:transparent;
+                    border:none;
+                    outline:none;
+                    font-size:1.4rem;
+                    cursor:pointer;
+                    transition:transfrom .2s ease-in-out;
+                }
+                button:hover {
+                    transform:scale(1.1)
+                }
+            }
+            li {
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+                -webkit-flex: 0 1 auto;
+                -ms-flex: 0 1 auto;
+                flex: 0 1 auto;
+                -webkit-align-self: auto;
+                -ms-flex-item-align: auto;
+                align-self: auto;
+                border-top:2px solid $white;
+                border-right:2px solid $white;
+                border-bottom:2px solid $white;
+                overflow:hidden;
+                a {
+                    padding:10px 20px;
+                    display:inline-block;
+                    color:$white;
+                    text-decoration: none;
+                    font-family: $headline;
+                    text-transform: uppercase;
+                    font-size:1.4rem;
+                    font-weight:bold;
+                    @include link--hover();
+                }
+                a:hover {
+                    background-color:$yellow;
+                    color:$text;
+                }
+            }
+            li:first-of-type {
+                @include border-top-left-radius(15px);
+                @include border-bottom-left-radius(15px);
+                border-left:2px solid $white;
+            }
+            li:nth-last-child(2) {
+                @include border-top-right-radius(15px);
+                @include border-bottom-right-radius(15px);
+            }
+            li:last-of-type {
+                border:none;
+            }
+        }
+    }
+}
+
+/* Hero Images
+***************/
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.hero--image {
+    display:block;
+    width:100%;
+    min-height:450px;
+    background-color:$aqua;
+    position: relative;
+    z-index: 1;
+    animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: .5s;
+
+    .container {
+        position:absolute;
+        z-index: 2;
+        bottom:100px;
+        right:0;
+        left:0;
+
+        h1 {
+            color:$white;
+            @include single-text-shadow(2px,2px,8px,2px,$text);
+        }
+    }
+}
+.hero--image:after {
+    content:"";
+    display:block;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    position: absolute;
+    z-index: 1;
+    background:linear-gradient(to bottom, $text, rgba(0,0,0,0) );    
+}
+
+
+/* Breadcrumbs
+***************/
+.breadcrumbs {
+    width:100%;
+    background-color:$yellow;
+    font-size:1.4rem;
+    color:$text;
+    font-weight:bold;
+    padding:20px 0;
+
+    a {
+        color:$text;
+        text-decoration:none;
+    }
+}
+
+
+/* Content
+***************/
+.content {
+    padding:60px 0;
+    display:block;
+    p {
+        margin:0 0 20px 0;
+    }
+}
