@@ -1,6 +1,6 @@
 <?php
 
-$number = 44880;
+$number = 10000;
 $length = 10;
 
 $keys = generate_strings($number, $length);
